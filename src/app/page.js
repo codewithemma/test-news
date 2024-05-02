@@ -1,5 +1,6 @@
 import News from "@/components/news/News";
 import styles from "./page.module.css";
+import Image from "next/image";
 export default function Home() {
   return (
     <div>
@@ -34,6 +35,27 @@ export default function Home() {
       </div>
       <div className={styles.box}>
         <p>Parliarmentary News From the House of Representatives</p>
+      </div>
+      <div className={styles.news}>
+        <div>
+          <Image src="/assets/tinubu.svg" width={350} height={215} alt="" />
+        </div>{" "}
+        <div className={styles.news_details}>
+          <p>
+            10th NASS Leadership: Opposition Parties Brace For Tough Fight With
+            APC
+          </p>
+          <div>
+            icon
+            <p></p>
+          </div>
+          <p>
+            The Green Chamber on Monday, February 26, 2024 said it will address
+            the pitfalls that led to the failure of past Constitution Amendments
+            in the country by working closely with...
+          </p>
+          <button>Read More</button>
+        </div>
       </div>
     </div>
   );
