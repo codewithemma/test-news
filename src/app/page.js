@@ -1,35 +1,47 @@
-import News from "@/components/news/News";
 import styles from "./page.module.css";
 import Image from "next/image";
+import Link from "next/link";
 export default function Home() {
   return (
     <div>
       <p className={styles.header}> Parliamentary News</p>
       <div className={styles.grid}>
         <div className={styles.comp1}>
-          <News
-            text={
-              "HOUSE OF REPRESENTATIVES INAUGURATES CONSTITUTION REVIEW COMMITTEE (27/02/2024)"
-            }
-            className={styles.bg}
-          />
+          <div className={styles.bg}>
+            <button className={styles.btn}>News</button>
+            <p>
+              HOUSE OF REPRESENTATIVES INAUGURATES CONSTITUTION REVIEW COMMITTEE
+              (27/02/2024)
+            </p>
+            <Link href="/" className={styles.link}>
+              Read more
+            </Link>
+          </div>
         </div>
         <div className={styles.flex}>
           <div className={styles.comp2}>
-            <News
-              text={
-                "HOUSE OF REPRESENTATIVES INAUGURATES CONSTITUTION REVIEW COMMITTEE (27/02/2024)"
-              }
-              className={styles.bg1}
-            />
+            <div className={styles.bg1}>
+              <button className={styles.btn}>News</button>
+              <p>
+                SENATE CONFIRMS CBN GOVERNOR, 11 OTHERS AS MEMBERS OF MONETARY
+                POLICY COMMITTEE (22/02/2024)
+              </p>
+              <Link href="/" className={styles.link}>
+                Read more
+              </Link>
+            </div>
           </div>
           <div className={styles.comp3}>
-            <News
-              text={
-                "HOUSE OF REPRESENTATIVES INAUGURATES CONSTITUTION REVIEW COMMITTEE (27/02/2024)"
-              }
-              className={styles.bg1}
-            />
+            <div className={styles.bg2}>
+              <button className={styles.btn}>News</button>
+              <p>
+                REPS PLEDGES TO WORK WITH EXECUTIVE TO TACKLE NATIONAL SECURITY
+                (26/02/2024)
+              </p>
+              <Link href="/" className={styles.link}>
+                Read more
+              </Link>
+            </div>
           </div>
         </div>
       </div>
