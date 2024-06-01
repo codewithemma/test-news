@@ -1,0 +1,116 @@
+.header {
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 39.68px;
+  color: #dd0000;
+}
+.link {
+  text-decoration: none;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 400;
+}
+.btn {
+  color: #fff;
+  background: #dd0000;
+  padding: 10px;
+  border: none;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.bg {
+  margin: 358px 0;
+  width: fit-content;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  background-color: rgba(35, 31, 32, 0.6);
+  padding: 10px;
+}
+.bg1 {
+  margin: 103px 0;
+  width: fit-content;
+  font-weight: 600;
+  font-size: 12px;
+  color: #fff;
+  background-color: rgba(35, 31, 32, 0.6);
+  padding: 10px;
+}
+.bg2 {
+  margin: 118px 0;
+  width: fit-content;
+  font-weight: 600;
+  font-size: 12px;
+  color: #fff;
+  background-color: rgba(35, 31, 32, 0.6);
+  padding: 10px;
+}
+.comp1 {
+  background: url(/assets/1723.jpg);
+  width: 700px;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.comp2 {
+  background: url(/assets/1724.jpg);
+  width: 344px;
+  height: 239px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.comp3 {
+  background: url(/assets/coatofarm.jpg);
+  width: 344px;
+  height: 239px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.box p {
+  background-color: #1b7339;
+  width: 100%;
+  height: 60px;
+  color: #fff;
+  padding: 0 20px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+}
+.news {
+  height: 200px;
+  width: 700px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+.news_details p:nth-of-type(1) {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1b7339;
+}
+.news_details p:nth-of-type(2) {
+  font-size: 12px;
+  font-weight: 400;
+}
+.news_details .btn {
+  width: 112px;
+  height: 31px;
+  padding: 10px 24px;
+  background: #231f20;
+  color: #fff;
+  border: none;
+  font-size: 12px;
+  text-decoration: none;
+}

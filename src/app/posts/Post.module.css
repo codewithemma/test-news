@@ -1,0 +1,25 @@
+.news_header {
+  font-size: 40px;
+  font-weight: 600;
+}
+.timeline {
+  font-size: 16px;
+  font-weight: 400;
+  color: #000000b6;
+}
+.img_container {
+  position: relative;
+  width: 1088px;
+  height: 532px;
+}
+.flex {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.flex p {
+  font-size: 24px;
+  font-weight: 400;
+}
