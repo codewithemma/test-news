@@ -1,5 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 body {
   max-width: 1200px;
   margin: 0 auto;
   padding: 15px;
+  background-color: #f9f9f9;
 }
