@@ -2,6 +2,7 @@ import Image from "next/image";
 import styles from "./NewsCard.module.css";
 import Link from "next/link";
 import { news } from "@/app/api/news/data";
+import { CiClock2 } from "react-icons/ci";
 const NewsCard = () => {
   return (
     <div className={styles.news}>
@@ -22,7 +23,7 @@ const NewsCard = () => {
             <div className={styles.news_details}>
               <p>{post.title}</p>
               <div className={styles.timeline}>
-                <span>icon</span>
+                <CiClock2 />
                 <p
                   style={{
                     fontSize: "10px",
