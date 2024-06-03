@@ -47,7 +47,7 @@
 .bg {
   z-index: 9999;
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   width: 100%;
   background-color: rgba(35, 31, 32, 0.6);
   padding: 10px;
@@ -58,16 +58,19 @@
   color: #fff;
   margin: 10px 0;
 }
+
 .bg1 {
   z-index: 9999;
   position: absolute;
   bottom: 0;
   width: 100%;
-  font-weight: 600;
-  font-size: 12px;
   color: #fff;
   background-color: rgba(35, 31, 32, 0.6);
   padding: 10px;
+}
+.bg1 p {
+  font-weight: 600;
+  font-size: 12px;
 }
 .box {
   margin-top: 20px;
@@ -122,5 +125,14 @@
   .news_img {
     width: 344px;
     height: 239px;
+  }
+  .bg p {
+    font-size: 12px;
+    font-weight: 600;
+  }
+  .bg1 p {
+    font-size: 12px;
+    margin: 10px 0;
+    font-weight: 600;
   }
 }
