@@ -7,6 +7,7 @@ import { posts } from "./dummy";
 const page = () => {
   return (
     <div>
+      <p className={styles.header}>Parliamentary News</p>
       <div className={styles.bigBox}>
         <div className={styles.largeBox}>
           <div className={styles.news_img}>
@@ -18,7 +19,7 @@ const page = () => {
               style={{ objectFit: "cover" }}
             />
             <div className={styles.bg}>
-              <div style={{ width: "500px" }}>
+              <div>
                 <button className={styles.btn}>News</button>
                 <p>{posts[0].description}</p>
                 <Link href="/" className={styles.link}>
@@ -39,7 +40,7 @@ const page = () => {
                 style={{ objectFit: "cover" }}
               />
               <div className={styles.bg1}>
-                <div style={{ width: "200px" }}>
+                <div>
                   <button className={styles.btn}>News</button>
                   <p>{posts[0].description}</p>
                   <Link href="/" className={styles.link}>
@@ -51,7 +52,6 @@ const page = () => {
           ))}
         </div>
       </div>
-      <p className={styles.header}>Parliamentary News</p>
       <div className={styles.box}>
         <p>Parliarmentary News From the House of Representatives</p>
       </div>

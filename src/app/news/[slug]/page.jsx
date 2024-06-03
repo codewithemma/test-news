@@ -7,7 +7,7 @@ const getData = async (slug) => {
   });
   if (!res.ok) {
     const errorData = await res.json();
-    throw new Error(errorData.message);
+    throw new Error(errorData.error);
   }
   return res.json();
 };

@@ -8,15 +8,7 @@ const NewsCard = () => {
     <div className={styles.news}>
       {news.map((post, id) => {
         return (
-          <div
-            key={id}
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              alignItems: "start",
-              gap: "20px",
-            }}
-          >
+          <div key={id} className={styles.news_item}>
             <div>
               <Image src="/assets/tinubu.svg" width={350} height={215} alt="" />
             </div>
@@ -36,7 +28,7 @@ const NewsCard = () => {
                   {post.date}
                 </p>
               </div>
-              <p>{post.description.slice(0, 255)}...</p>
+              <p>{post.description}...</p>
               <Link href={`/news/${post.slug}`} className={styles.btn}>
                 Read More
               </Link>

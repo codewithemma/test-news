@@ -2,7 +2,6 @@
   display: grid;
   grid-template-columns: 2fr 1fr;
   gap: 10px;
-  height: 500px;
 }
 
 .largeBox {
@@ -11,18 +10,13 @@
 
 .smallBox {
   position: relative;
-  /* width: 344px;
-  height: 239px;
-  padding: 309px 0px 0px 47px; */
-
-  /* margin-bottom: 10px;  */
 }
 
 .flexContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 40px;
+  gap: 20px;
 }
 
 .header {
@@ -30,6 +24,7 @@
   font-weight: 600;
   line-height: 39.68px;
   color: #dd0000;
+  margin-bottom: 10px;
 }
 .link {
   text-decoration: none;
@@ -43,13 +38,6 @@
   padding: 10px;
   border: none;
 }
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-top: 20px;
-}
-
 .flex {
   display: flex;
   flex-direction: column;
@@ -73,43 +61,13 @@
 .bg1 {
   z-index: 9999;
   position: absolute;
-  bottom: 0px;
+  bottom: 0;
   width: 100%;
   font-weight: 600;
   font-size: 12px;
   color: #fff;
   background-color: rgba(35, 31, 32, 0.6);
   padding: 10px;
-}
-.bg2 {
-  margin: 118px 0;
-  width: fit-content;
-  font-weight: 600;
-  font-size: 12px;
-  color: #fff;
-  background-color: rgba(35, 31, 32, 0.6);
-  padding: 10px;
-}
-.comp1 {
-  background: url(/assets/1723.jpg);
-  width: 700px;
-  height: 500px;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.comp2 {
-  background: url(/assets/1724.jpg);
-  width: 344px;
-  height: 239px;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-.comp3 {
-  background: url(/assets/coatofarm.jpg);
-  width: 344px;
-  height: 239px;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 .box {
   margin-top: 20px;
@@ -130,6 +88,7 @@
   justify-content: space-between;
   align-items: start;
   gap: 50px;
+  margin-top: 50px;
 }
 
 .news_img {
@@ -142,4 +101,26 @@
   position: relative;
   width: 344px;
   height: 239px;
+}
+@media screen and (max-width: 1024px) {
+  .news_img {
+    width: 600px;
+    height: 500px;
+  }
+}
+@media screen and (max-width: 470px) {
+  .bigBox {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .news_img {
+    width: 344px;
+    height: 239px;
+  }
 }
