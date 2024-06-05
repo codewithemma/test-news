@@ -19,7 +19,7 @@ const SingleNews = async ({ params }) => {
       <p className={styles.news_header}>{news.title}</p>
       <p className={styles.timeline}>{news.date}</p>
       <div className={styles.img_container}>
-        <Image src="/assets/neww.svg" alt="news" fill priority />
+        <Image src={news.image} alt="news" fill priority />
       </div>
       <div className={styles.flex}>
         <div

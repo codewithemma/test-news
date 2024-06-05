@@ -1,12 +1,11 @@
 import Link from "next/link";
-import image from "next/image";
 import styles from "./News.module.css";
 import Image from "next/image";
 import Menu from "@/components/menu/Menu";
 import NewsCard from "@/components/newsCard/NewsCard";
 import { posts } from "./dummy";
 
-const News = async () => {
+const News = () => {
   return (
     <div>
       <p className={styles.header}>Parliamentary News</p>

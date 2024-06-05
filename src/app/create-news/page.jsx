@@ -6,18 +6,21 @@ import "react-quill/dist/quill.bubble.css";
 const ReactQuill = dynamic(() => import("react-quill"), {
   ssr: false,
 });
-import { IoIosAddCircle } from "react-icons/io";
+import { IoIosAddCircle, IoMdCloudUpload } from "react-icons/io";
+// import { FaUpload } from "react-icons/fa";
 import FileBase from "react-file-base64";
+import { toast } from "react-toastify";
 const WritePage = () => {
   const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
   const [value, setValue] = useState(false);
   const [media, setMedia] = useState("");
   const [open, setOpen] = useState(false);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (!title || !value) {
-      alert("Title and description are required.");
+    if (!title || !value || !description) {
+      alert("Title, description, and content are required.");
       return;
     }
     const res = await fetch("/api/news", {
@@ -25,12 +28,14 @@ const WritePage = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         title,
+        description,
         content: value,
         image: media,
       }),
     });
     if (res.ok) {
       const data = await res.json();
+      toast("sucess");
       alert(`Success: ${data.message || "News item created!"}`);
       //   router.push(`/news/${data.slug}`);
     }
@@ -45,24 +50,37 @@ const WritePage = () => {
         value={title}
         onChange={(event) => setTitle(event.target.value)}
       />
+      <input
+        type="text"
+        placeholder="Enter more about a post"
+        className={styles.input1}
+        value={description}
+        onChange={(event) => setDescription(event.target.value)}
+      />
       <div className={styles.editor}>
         <button className={styles.button} onClick={() => setOpen(!open)}>
-          <label htmlFor="image">
+          <label>
             <IoIosAddCircle size={"big"} />
           </label>
         </button>
         {open && (
-          <div className={styles.add}>
-            <FileBase
-              type="file"
-              id="image"
-              multiple={false}
-              onDone={({ base64 }) => {
-                setMedia(base64);
-              }}
-              style={{ display: "none" }}
-            />
-          </div>
+          <>
+            <div className={styles.add}>
+              <FileBase
+                type="file"
+                id="image"
+                multiple={false}
+                onDone={({ base64 }) => {
+                  setMedia(base64);
+                }}
+              />
+            </div>
+            <button className={styles.addButton}>
+              <label htmlFor="image">
+                <IoMdCloudUpload size={"big"} />
+              </label>
+            </button>
+          </>
         )}
         <ReactQuill
           className={styles.textArea}

@@ -15,7 +15,8 @@
     "react-dom": "^18",
     "react-file-base64": "^1.0.3",
     "react-icons": "^5.2.1",
-    "react-quill": "^2.0.0"
+    "react-quill": "^2.0.0",
+    "react-toastify": "^10.0.5"
   },
   "devDependencies": {
     "eslint": "^8",

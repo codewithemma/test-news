@@ -33,17 +33,27 @@
 
 .add {
   display: flex;
+  opacity: 0;
   gap: 20px;
   background-color: var(--bg);
   position: absolute;
   z-index: 999;
   width: 100%;
+  /* top: 100px; */
   left: 50px;
 }
 
 .input {
+  padding: 50px 50px 0;
+  font-size: 50px;
+  border: none;
+  outline: none;
+  background-color: transparent;
+  color: var(--textColor);
+}
+.input1 {
   padding: 50px;
-  font-size: 64px;
+  font-size: 30px;
   border: none;
   outline: none;
   background-color: transparent;
@@ -54,6 +64,9 @@
   color: #b3b3b1;
 }
 
+.input1::placeholder {
+  color: #b3b3b1;
+}
 .textArea {
   width: 100%;
 }

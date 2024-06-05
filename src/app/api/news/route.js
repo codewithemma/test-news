@@ -13,8 +13,8 @@ export const GET = async (req, res) => {
 export const POST = async (req) => {
   await connectDB();
   try {
-    const { title, content, image } = await req.json();
-    const post = new newsModel({ title, content, image });
+    const { title, content, image, description } = await req.json();
+    const post = new newsModel({ title, content, image, description });
     await post.save();
     return new NextResponse(JSON.stringify(post, { status: 200 }));
   } catch (err) {

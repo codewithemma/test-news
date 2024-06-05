@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
-import { news } from "../data";
+import newsModel from "../../../../models/news";
 
 export const GET = async (req, { params }) => {
   const { slug } = params;
   try {
-    const post = news.find((p) => p.slug === slug);
+    const post = await newsModel.findOne({ _id: slug });
     if (!post) {
       return new NextResponse(JSON.stringify({ error: "Post not found" }), {
         status: 404,
@@ -13,7 +13,7 @@ export const GET = async (req, { params }) => {
         },
       });
     }
-    return new NextResponse(JSON.stringify(post), {
+    return new NextResponse(JSON.stringify(post, { status: 200 }), {
       headers: {
         "Content-Type": "application/json",
       },

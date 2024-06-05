@@ -39,14 +39,11 @@ const NewsCard = async () => {
                   }}
                   className={styles.date}
                 >
-                  {post.createdAt}
+                  {post.createdAt.slice(0, 10)}
                 </p>
               </div>
-              <div
-                className={styles.description}
-                dangerouslySetInnerHTML={{ __html: post.content }}
-              />
-              <Link href={`/news/${post.slug}`} className={styles.btn}>
+              <p className={styles.description}>{post.description}</p>
+              <Link href={`/news/${post._id}`} className={styles.btn}>
                 Read More
               </Link>
             </div>
