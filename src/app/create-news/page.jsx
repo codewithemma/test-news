@@ -7,9 +7,10 @@ const ReactQuill = dynamic(() => import("react-quill"), {
   ssr: false,
 });
 import { IoIosAddCircle, IoMdCloudUpload } from "react-icons/io";
-// import { FaUpload } from "react-icons/fa";
 import FileBase from "react-file-base64";
 import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/navigation";
 const WritePage = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -17,10 +18,14 @@ const WritePage = () => {
   const [media, setMedia] = useState("");
   const [open, setOpen] = useState(false);
 
+  const router = useRouter();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     if (!title || !value || !description) {
-      alert("Title, description, and content are required.");
+      toast.error("Missing Required Fields!", {
+        className: styles.toast,
+      });
       return;
     }
     const res = await fetch("/api/news", {
@@ -35,9 +40,10 @@ const WritePage = () => {
     });
     if (res.ok) {
       const data = await res.json();
-      toast("sucess");
-      alert(`Success: ${data.message || "News item created!"}`);
-      //   router.push(`/news/${data.slug}`);
+      toast.success(`Success: ${data.message || "News item created!"}`, {
+        className: styles.toast,
+      });
+      router.push(`/news/${data._id}`);
     }
   };
 
