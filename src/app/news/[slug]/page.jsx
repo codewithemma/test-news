@@ -1,8 +1,9 @@
 import Menu from "@/components/menu/Menu";
 import Image from "next/image";
 import styles from "./Post.module.css";
+import { url } from "@/utils/api";
 const getData = async (slug) => {
-  const res = await fetch(`http://localhost:3000/api/news/${slug}`, {
+  const res = await fetch(`${url}/api/news/${slug}`, {
     cache: "no-store",
   });
   if (!res.ok) {

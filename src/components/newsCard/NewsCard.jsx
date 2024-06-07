@@ -3,8 +3,9 @@ import styles from "./NewsCard.module.css";
 import Link from "next/link";
 // import { news } from "@/app/api/news/data";
 import { CiClock2 } from "react-icons/ci";
+import { url } from "@/utils/api";
 const getData = async () => {
-  const res = await fetch("http://localhost:3000/api/news", {
+  const res = await fetch(`${url}/api/news`, {
     cache: "no-store",
   });
 
@@ -18,7 +19,7 @@ const NewsCard = async () => {
 
   return (
     <div className={styles.news}>
-      {news.map((post) => {
+      {news.slice(0, 5).map((post) => {
         return (
           <div key={post._id} className={styles.news_item}>
             <div>

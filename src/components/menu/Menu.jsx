@@ -1,7 +1,8 @@
 import Link from "next/link";
 import styles from "./Menu.module.css";
+import { url } from "@/utils/api";
 const getData = async () => {
-  const res = await fetch("http://localhost:3000/api/news", {
+  const res = await fetch(`${url}/api/news`, {
     cache: "no-store",
   });
 
@@ -18,7 +19,7 @@ const Menu = async (slug) => {
         <div className={styles.trend}>
           <p>Trending Now</p>
         </div>
-        {news?.map((post) => (
+        {news?.slice(0, 3).map((post) => (
           <div key={post.slug}>
             <Link href={`/news/${post._id}`} className={styles.menu_links}>
               <span>{post.title}</span>

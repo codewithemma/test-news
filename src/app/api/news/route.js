@@ -5,7 +5,9 @@ import { NextResponse } from "next/server";
 // GET ALL POST
 export const GET = async (req, res) => {
   await connectDB();
-  const posts = await newsModel.find().exec();
+  const posts = await newsModel.find().sort({
+    _id: -1,
+  });
   return new NextResponse(JSON.stringify(posts, { status: 200 }));
 };
 
