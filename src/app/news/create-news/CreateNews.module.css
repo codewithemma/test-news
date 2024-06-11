@@ -13,6 +13,9 @@
 
 .editor {
   display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
   gap: 20px;
   height: 700px;
   position: relative;
@@ -32,15 +35,10 @@
 }
 
 .add {
-  display: flex;
-  opacity: 0;
   gap: 20px;
   background-color: var(--bg);
-  position: absolute;
   z-index: 999;
-  width: 100%;
-  /* top: 100px; */
-  left: 50px;
+  cursor: pointer;
 }
 
 .input {

@@ -15,6 +15,7 @@ const getData = async (slug) => {
 const SingleNews = async ({ params }) => {
   const { slug } = params;
   const news = await getData(slug);
+
   return (
     <div>
       <p className={styles.news_header}>{news.title}</p>

@@ -9,10 +9,6 @@ body {
   padding: 15px;
   background-color: #f9f9f9;
 }
-.ql-container {
-  font-size: 28px !important;
-}
-
-.quill > .ql-container > .ql-editor.ql-blank::before {
-  color: #b3b3b1;
+.ck-body-wrapper {
+  width: 100%;
 }

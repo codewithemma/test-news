@@ -1,7 +1,6 @@
 import Image from "next/image";
 import styles from "./NewsCard.module.css";
 import Link from "next/link";
-// import { news } from "@/app/api/news/data";
 import { CiClock2 } from "react-icons/ci";
 import { url } from "@/utils/api";
 const getData = async () => {
@@ -16,7 +15,9 @@ const getData = async () => {
 };
 const NewsCard = async () => {
   const news = await getData();
-
+  if (!news) {
+    return <div>no items to see here</div>;
+  }
   return (
     <div className={styles.news}>
       {news.slice(0, 5).map((post) => {
@@ -43,7 +44,9 @@ const NewsCard = async () => {
                   {post.createdAt.slice(0, 10)}
                 </p>
               </div>
-              <p className={styles.description}>{post.description}</p>
+              <p className={styles.description}>
+                {post.description.slice(0, 370)}...
+              </p>
               <Link href={`/news/${post._id}`} className={styles.btn}>
                 Read More
               </Link>

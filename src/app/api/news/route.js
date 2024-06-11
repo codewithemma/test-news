@@ -16,9 +16,10 @@ export const POST = async (req) => {
   await connectDB();
   try {
     const { title, content, image, description } = await req.json();
+    console.log(title, content, image, description);
     const post = new newsModel({ title, content, image, description });
     await post.save();
-    return new NextResponse(JSON.stringify(post, { status: 200 }));
+    return new NextResponse(JSON.stringify(post, { status: 201 }));
   } catch (err) {
     console.log(err);
     return new NextResponse(
