@@ -15,18 +15,17 @@ const getData = async (slug) => {
 const SingleNews = async ({ params }) => {
   const { slug } = params;
   const news = await getData(slug);
-
   return (
     <div>
-      <p className={styles.news_header}>{news.title}</p>
-      <p className={styles.timeline}>{news.date}</p>
+      <p className={styles.news_header}>{news?.title}</p>
+      <p className={styles.timeline}>{news?.date}</p>
       <div className={styles.img_container}>
         <Image src={news.image} alt="news" fill priority />
       </div>
       <div className={styles.flex}>
         <div
           className={styles.post}
-          dangerouslySetInnerHTML={{ __html: news.content }}
+          dangerouslySetInnerHTML={{ __html: news?.content }}
         />
         <div>
           <Menu />
