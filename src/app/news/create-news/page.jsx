@@ -1,11 +1,18 @@
 "use client";
+import dynamic from "next/dynamic";
 import { useState } from "react";
 import styles from "./CreateNews.module.css";
-import FileBase from "react-file-base64";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
-import CKEditorComponent from "@/components/ckEditor/CkEditor";
+const CKEditorComponent = dynamic(
+  () => import("@/components/ckEditor/CkEditor"),
+  {
+    ssr: false,
+  }
+);
+
+const FileBase = dynamic(() => import("react-file-base64"), { ssr: false });
 const WritePage = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
