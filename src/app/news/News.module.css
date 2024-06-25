@@ -71,6 +71,21 @@
   font-size: 12px;
 }
 
+.box {
+  margin: 40px 0;
+  padding: 10px;
+  width: 100%;
+  color: white;
+  background-color: #1b7339;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+}
 @media screen and (max-width: 900px) {
   .header {
     font-size: 25px;
@@ -101,5 +116,14 @@
 
   .container_child_img {
     height: 250px;
+  }
+
+  .box {
+    font-size: 16px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: 1fr;
   }
 }

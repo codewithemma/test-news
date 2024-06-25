@@ -23,9 +23,15 @@ const NewsCard = async () => {
       {news.slice(0, 5).map((post) => {
         return (
           <div key={post._id} className={styles.news_item}>
-            <div>
+            <div className={styles.img_container}>
               {post.image && (
-                <Image src={post.image} width={350} height={215} alt="" />
+                <Image
+                  src={post.image}
+                  fill
+                  style={{ objectFit: "cover" }}
+                  alt="news_img"
+                  sizes="(max-width: 768px) 100vw 700px"
+                />
               )}
             </div>
             <div className={styles.news_details}>
@@ -37,7 +43,6 @@ const NewsCard = async () => {
                     fontSize: "10px",
                     fontWeight: "400",
                     color: "#575757",
-                    margin: "10px 0",
                   }}
                   className={styles.date}
                 >
@@ -45,9 +50,9 @@ const NewsCard = async () => {
                 </p>
               </div>
               <p className={styles.description}>
-                {post.description.slice(0, 370)}...
+                {post.description.slice(0, 200)}...
               </p>
-              <Link href={`/news/${post._id}`} className={styles.btn}>
+              <Link href={`/news/${post._id}`} className={styles.btn_readmore}>
                 Read More
               </Link>
             </div>

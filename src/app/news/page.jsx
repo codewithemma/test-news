@@ -61,7 +61,7 @@ const News = async (slug) => {
             </div>
           </div>
           <div
-            className={styles.container_child_img}
+            className={styles.container_child_img1}
             style={{
               position: "relative",
               width: "100%",
@@ -82,75 +82,13 @@ const News = async (slug) => {
           </div>
         </div>
       </div>
-      {/* <div className={styles.bigBox}>
-        <div className={styles.largeBox}>
-          <div className={styles.news_img}>
-            <Image
-              src={post[0]?.image}
-              alt="large"
-              fill
-              priority
-              style={{ objectFit: "cover" }}
-            />
-            <div className={styles.bg}>
-              <div>
-                <button className={styles.btn}>News</button>
-                <p>{post[0]?.description.slice(0, 300)}...</p>
-                <Link href={`/news/${post[0]?._id}`} className={styles.link}>
-                  Read more
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className={`${styles.smallBox} ${styles.flexContainer}`}>
-          <div className={`${styles.news_img1}`}>
-            <Image
-              src={post[1]?.image}
-              alt="large"
-              fill
-              priority
-              style={{ objectFit: "cover" }}
-            />
-            <div className={styles.bg1}>
-              <div>
-                <button className={styles.btn}>News</button>
-                <p>{post[1]?.description.slice(0, 212)}...</p>
-                <Link href={`/news/${post[1]?._id}`} className={styles.link}>
-                  Read more
-                </Link>
-              </div>
-            </div>
-          </div>
-          <div className={`${styles.news_img1}`}>
-            <Image
-              src={post[2]?.image}
-              alt="large"
-              fill
-              priority
-              style={{ objectFit: "cover" }}
-            />
-            <div className={styles.bg1}>
-              <div>
-                <button className={styles.btn}>News</button>
-                <p>{post[2]?.description.slice(0, 212)}...</p>
-                <Link href={`/news/${post[2]?._id}`} className={styles.link}>
-                  Read more
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
       <div className={styles.box}>
         <p>Parliarmentary News From the House of Representatives</p>
-      </div> */}
-      {/* <div className={styles.grid}>
+      </div>
+      <div className={styles.grid}>
         <NewsCard />
-        <div>
-          <Menu />
-        </div>
-      </div> */}
+        <Menu />
+      </div>
     </div>
   );
 };
