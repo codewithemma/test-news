@@ -55,14 +55,13 @@ const EditPage = ({ newsData, slug }) => {
           image: media,
         }),
       });
-      const errorMessage = await res.json();
-      console.log(errorMessage);
+      const data = await res.json();
       if (res.ok) {
         setLoading(false);
         toast.success(`Success: News item updated successfully!`, {
           className: styles.toast,
         });
-        // router.push(`/news/${data.slug}`);
+        router.push(`/news/${data.slug}`);
       } else {
         setLoading(false);
         toast.error(errorMessage);

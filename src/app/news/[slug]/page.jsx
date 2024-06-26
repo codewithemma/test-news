@@ -17,9 +17,24 @@ const getData = async (slug) => {
   }
   return res.json();
 };
+
+const handleDeleteNews = () => {
+  window.confirm("Are you sure you want to delete news item...?");
+  return;
+  // const res = await fetch("/api/news", {
+  //   method: "DELETE",
+  // });
+  // if (!res.ok) {
+  //   const errorData = await res.json();
+  //   console.log(errorData.message);
+  // }
+  // router.push("/news");
+};
+
 const SingleNews = async ({ params }) => {
   const { slug } = params;
   const news = await getData(slug);
+
   return (
     <div>
       <p className={styles.news_header}>{news?.title}</p>
@@ -37,12 +52,12 @@ const SingleNews = async ({ params }) => {
             {formatDateToRelative(news.createdAt)}
           </p>
         </div>
-        <div>
+        <div className={styles.edit_btns}>
           <Link href={`/news/${news.slug}/edn`}>
-            <FaRegEdit size={"20px"} />
+            <FaRegEdit size={"17px"} />
           </Link>
           <Link href="">
-            <FaRegTrashAlt size={"20px"} />
+            <FaRegTrashAlt size={"17px"} onClick={handleDeleteNews} />
           </Link>
         </div>
       </div>

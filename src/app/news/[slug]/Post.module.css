@@ -21,6 +21,9 @@
   gap: 10px;
   margin-bottom: 10px;
 }
+.edit_btns a {
+  color: grey;
+}
 .img_container {
   position: relative;
   width: 1088px;

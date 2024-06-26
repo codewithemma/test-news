@@ -47,8 +47,7 @@ const WritePage = () => {
           image: media,
         }),
       });
-      const errorMessage = await res.json();
-      console.log(errorMessage);
+      const data = await res.json();
       if (res.ok) {
         setLoading(false);
         toast.success(`Success: News item created!`, {
