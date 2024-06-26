@@ -8,10 +8,18 @@
   font-weight: 600;
   margin-bottom: 5px;
 }
+.details {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 30px;
+}
 .timeline {
-  font-size: 16px;
-  font-weight: 400;
-  color: #000000b6;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
 }
 .img_container {
   position: relative;

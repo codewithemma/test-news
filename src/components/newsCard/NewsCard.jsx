@@ -52,7 +52,7 @@ const NewsCard = async () => {
               <p className={styles.description}>
                 {post.description.slice(0, 200)}...
               </p>
-              <Link href={`/news/${post._id}`} className={styles.btn_readmore}>
+              <Link href={`/news/${post.slug}`} className={styles.btn_readmore}>
                 Read More
               </Link>
             </div>

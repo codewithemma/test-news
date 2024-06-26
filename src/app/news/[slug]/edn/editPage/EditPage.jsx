@@ -1,11 +1,12 @@
 "use client";
 import dynamic from "next/dynamic";
-import { useState } from "react";
-import styles from "./CreateNews.module.css";
+import { useEffect, useState } from "react";
+import styles from "./EditPage.module.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import slugify from "react-slugify";
+
 const CKEditorComponent = dynamic(
   () => import("@/components/ckEditor/CkEditor"),
   {
@@ -15,7 +16,7 @@ const CKEditorComponent = dynamic(
 
 const FileBase = dynamic(() => import("react-file-base64"), { ssr: false });
 
-const WritePage = () => {
+const EditPage = ({ newsData, slug }) => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [value, setValue] = useState("");
@@ -24,20 +25,27 @@ const WritePage = () => {
 
   const router = useRouter();
 
+  useEffect(() => {
+    setTitle(newsData.title);
+    setDescription(newsData.description);
+    setMedia(newsData.image);
+    setValue(newsData.content);
+  }, [newsData]);
+
   const postSlug = slugify(title);
 
   const handleSubmit = async (event) => {
+    setLoading(true);
+    event.preventDefault();
+    if (!title || !value || !description) {
+      toast.error("Missing Required Fields!", {
+        className: styles.toast,
+      });
+      return;
+    }
     try {
-      setLoading(true);
-      event.preventDefault();
-      if (!title || !value || !description) {
-        toast.error("Missing Required Fields!", {
-          className: styles.toast,
-        });
-        return;
-      }
-      const res = await fetch("/api/news", {
-        method: "POST",
+      const res = await fetch(`/api/news/${slug}`, {
+        method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           title,
@@ -51,10 +59,10 @@ const WritePage = () => {
       console.log(errorMessage);
       if (res.ok) {
         setLoading(false);
-        toast.success(`Success: News item created!`, {
+        toast.success(`Success: News item updated successfully!`, {
           className: styles.toast,
         });
-        router.push(`/news/${data.slug}`);
+        // router.push(`/news/${data.slug}`);
       } else {
         setLoading(false);
         toast.error(errorMessage);
@@ -103,10 +111,10 @@ const WritePage = () => {
         onClick={handleSubmit}
         disabled={loading}
       >
-        {loading ? "Publishing..." : "Publish"}
+        {loading ? "Updating..." : "Update"}
       </button>
     </div>
   );
 };
 
-export default WritePage;
+export default EditPage;

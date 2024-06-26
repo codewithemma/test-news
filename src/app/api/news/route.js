@@ -15,13 +15,11 @@ export const GET = async (req, res) => {
 export const POST = async (req) => {
   await connectDB();
   try {
-    const { title, content, image, description } = await req.json();
-    console.log(title, content, image, description);
-    const post = new newsModel({ title, content, image, description });
+    const { title, content, slug, image, description } = await req.json();
+    const post = new newsModel({ title, content, slug, image, description });
     await post.save();
     return new NextResponse(JSON.stringify(post, { status: 201 }));
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
     return new NextResponse(
       JSON.stringify({ message: "internal server error" }, { status: 500 })
     );

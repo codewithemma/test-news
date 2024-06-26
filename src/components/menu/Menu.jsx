@@ -21,7 +21,7 @@ const Menu = async (slug) => {
         </div>
         {news?.slice(0, 3).map((post) => (
           <div key={post.slug}>
-            <Link href={`/news/${post._id}`} className={styles.menu_links}>
+            <Link href={`/news/${post.slug}`} className={styles.menu_links}>
               <span>{post.title}</span>
               <br />
               <span> {post.createdAt.slice(0, 10)}</span>
