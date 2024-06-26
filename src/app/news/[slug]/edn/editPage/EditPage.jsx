@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import slugify from "react-slugify";
+import { url } from "@/utils/api";
 
 const CKEditorComponent = dynamic(
   () => import("@/components/ckEditor/CkEditor"),
@@ -61,7 +62,7 @@ const EditPage = ({ newsData, slug }) => {
         toast.success(`Success: News item updated successfully!`, {
           className: styles.toast,
         });
-        router.push(`/news/${data.slug}`);
+        router.push(`${url}/news/${data.slug}`);
       } else {
         setLoading(false);
         toast.error(errorMessage);

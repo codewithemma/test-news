@@ -32,7 +32,10 @@ const News = async (slug) => {
             <div>
               <button className={styles.btn}>News</button>
               <p>{post[0]?.description.slice(0, 150)}...</p>
-              <Link href={`/news/${post[0]?.slug}`} className={styles.link}>
+              <Link
+                href={`${url}/news/${post[0]?.slug}`}
+                className={styles.link}
+              >
                 Read more
               </Link>
             </div>
@@ -53,7 +56,10 @@ const News = async (slug) => {
               <div>
                 <button className={styles.btn}>News</button>
                 <p>{post[1]?.description.slice(0, 150)}...</p>
-                <Link href={`/news/${post[1]?.slug}`} className={styles.link}>
+                <Link
+                  href={`${url}/news/${post[1]?.slug}`}
+                  className={styles.link}
+                >
                   Read more
                 </Link>
               </div>
@@ -73,7 +79,10 @@ const News = async (slug) => {
               <div>
                 <button className={styles.btn}>News</button>
                 <p>{post[2]?.description.slice(0, 150)}...</p>
-                <Link href={`/news/${post[2]?.slug}`} className={styles.link}>
+                <Link
+                  href={`${url}/news/${post[2]?.slug}`}
+                  className={styles.link}
+                >
                   Read more
                 </Link>
               </div>

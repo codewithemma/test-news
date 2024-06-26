@@ -53,7 +53,7 @@ const SingleNews = async ({ params }) => {
           </p>
         </div>
         <div className={styles.edit_btns}>
-          <Link href={`/news/${news.slug}/edn`}>
+          <Link href={`${url}/news/${news.slug}/edn`}>
             <FaRegEdit size={"17px"} />
           </Link>
           <Link href="">
