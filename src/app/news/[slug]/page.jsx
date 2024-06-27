@@ -12,15 +12,14 @@ const getData = async (slug) => {
     cache: "no-store",
   });
   if (!res.ok) {
-    const errorData = await res.json();
-    throw new Error(errorData.error);
+    return null;
   }
   return res.json();
 };
 
 const handleDeleteNews = () => {
-  window.confirm("Are you sure you want to delete news item...?");
-  return;
+  // window.confirm("Are you sure you want to delete news item...?");
+  // return;
   // const res = await fetch("/api/news", {
   //   method: "DELETE",
   // });
@@ -57,7 +56,7 @@ const SingleNews = async ({ params }) => {
             <FaRegEdit size={"17px"} />
           </Link>
           <Link href="">
-            <FaRegTrashAlt size={"17px"} onClick={handleDeleteNews} />
+            <FaRegTrashAlt size={"17px"} />
           </Link>
         </div>
       </div>
