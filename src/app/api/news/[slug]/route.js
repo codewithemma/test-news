@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import newsModel from "../../../../models/news";
+import slugify from "react-slugify";
 //GET INFO OF A SPECIFIC POST
 export const GET = async (req, { params }) => {
   const { slug } = params;
@@ -33,7 +34,16 @@ export const PUT = async (req, { params }) => {
   try {
     const post = await newsModel.findOneAndUpdate(
       { slug },
-      { $set: { title, content, image, description, updatedAt: new Date() } },
+      {
+        $set: {
+          title,
+          content,
+          slug: slugify(title),
+          image,
+          description,
+          updatedAt: new Date(),
+        },
+      },
       { new: true }
     );
 

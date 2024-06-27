@@ -4,9 +4,10 @@ import styles from "./Post.module.css";
 import { url } from "@/utils/api";
 import { CiClock2 } from "react-icons/ci";
 import { FaRegEdit } from "react-icons/fa";
-import { FaRegTrashAlt } from "react-icons/fa";
 import { formatDateToRelative } from "@/utils/formatDate";
 import Link from "next/link";
+import DeleteButton from "./deleteButton/DeleteButton";
+import DOMPurify from "isomorphic-dompurify";
 const getData = async (slug) => {
   const res = await fetch(`${url}/api/news/${slug}`, {
     cache: "no-store",
@@ -17,22 +18,10 @@ const getData = async (slug) => {
   return res.json();
 };
 
-const handleDeleteNews = () => {
-  // window.confirm("Are you sure you want to delete news item...?");
-  // return;
-  // const res = await fetch("/api/news", {
-  //   method: "DELETE",
-  // });
-  // if (!res.ok) {
-  //   const errorData = await res.json();
-  //   console.log(errorData.message);
-  // }
-  // router.push("/news");
-};
-
 const SingleNews = async ({ params }) => {
   const { slug } = params;
   const news = await getData(slug);
+  const sanitizedContent = DOMPurify.sanitize(news?.content);
 
   return (
     <div>
@@ -55,9 +44,7 @@ const SingleNews = async ({ params }) => {
           <Link href={`${url}/news/${news.slug}/edn`}>
             <FaRegEdit size={"17px"} />
           </Link>
-          <Link href="">
-            <FaRegTrashAlt size={"17px"} />
-          </Link>
+          <DeleteButton slug={slug} />
         </div>
       </div>
       <div className={styles.img_container}>
@@ -66,7 +53,7 @@ const SingleNews = async ({ params }) => {
       <div className={styles.flex}>
         <div
           className={styles.post}
-          dangerouslySetInnerHTML={{ __html: news?.content }}
+          dangerouslySetInnerHTML={{ __html: sanitizedContent }}
         />
         <div>
           <Menu />

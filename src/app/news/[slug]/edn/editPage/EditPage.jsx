@@ -5,7 +5,6 @@ import styles from "./EditPage.module.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
-import slugify from "react-slugify";
 import { url } from "@/utils/api";
 
 const CKEditorComponent = dynamic(
@@ -33,8 +32,6 @@ const EditPage = ({ newsData, slug }) => {
     setValue(newsData.content);
   }, [newsData]);
 
-  const postSlug = slugify(title);
-
   const handleSubmit = async (event) => {
     setLoading(true);
     event.preventDefault();
@@ -47,11 +44,12 @@ const EditPage = ({ newsData, slug }) => {
     try {
       const res = await fetch(`/api/news/${slug}`, {
         method: "PUT",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+          "Content-Type": "application/json",
+        },
         body: JSON.stringify({
           title,
           description,
-          slug: postSlug,
           content: value,
           image: media,
         }),
