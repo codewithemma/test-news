@@ -32,7 +32,7 @@ This is a news app built with Next.js and MongoDB, allowing users to create, rea
 
 ### Environment Variables
 
-- `MONGODB_URI`: the connection string for your MongoDB instance
+- `MONGO_URI`: the connection string for your MongoDB instance
 
 ## API Endpoints
 
